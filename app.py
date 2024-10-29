@@ -109,8 +109,6 @@ if st.button("Generate Weekly Recap"):
         try:
             # Collect data and generate recap
             summary = get_comprehensive_league_summary()
-            st.write("**League Data Summary:**")
-            st.text(summary)
 
             recap = generate_funny_recap(summary)
             st.write("**Funny Weekly Recap:**")
