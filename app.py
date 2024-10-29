@@ -88,7 +88,7 @@ def generate_funny_recap(summary):
                             "teams in detail including their name. Make sure to create different sections with bold headings "
                             "for each part of the recap. Player scores and Team Scores are total for the season. Do not "
                             "include yourself in the recap. Cover these as sections. Best teams, Most Ass teams, last week's"
-                            "matchups and big matchup of the week. Make sure every team is mentioned at some point"},
+                            "matchups and big matchup of the week. Make sure every team is mentioned at some point. It is ok to curse"},
                 {"role": "user", "content": prompt}
             ],
             max_tokens=1300,
