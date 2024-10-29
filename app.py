@@ -80,7 +80,7 @@ def generate_funny_recap(summary):
     try:
         prompt = f"Create a funny, sarcastic weekly recap based on this fantasy football data:\n\n{summary}"
         response = openai.chat.completions.create(
-            model="gpt-4o-mini",
+            model="gpt-4",
             messages=[
                 {"role": "system",
                  "content": "You are a very raunchy, explicit and sarcastic commentator providing a humorous recap of a "
@@ -190,7 +190,6 @@ if option == "Weekly Recap" and league:
         summary = get_comprehensive_league_summary()
         if summary:
             recap = generate_funny_recap(summary)
-            st.write("**Funny Weekly Recap:**")
             st.write(recap)
             st.write('\n\nBased on app built from Jeisey')
 
