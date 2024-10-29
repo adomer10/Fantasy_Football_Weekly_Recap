@@ -18,7 +18,7 @@ openai.api_key = st.secrets["OPENAI_API_KEY"]
 # Sidebar for entering league details
 with st.sidebar:
     st.header("Enter League Details")
-    st.write("For SW2 and ESPN_S2: [Help Guide](https://www.gamedaybot.com/help/espn_s2-and-swid/)")
+    st.write("For SWID and ESPN_S2: [Help Guide](https://www.gamedaybot.com/help/espn_s2-and-swid/)")
     st.write("For League ID: Go to your league's homepage on ESPN and copy the number at the end of the URL.")
 
     # User Inputs in the Sidebar
@@ -170,14 +170,12 @@ def analyze_team_and_suggest_trades(team_name, player_data, league):
         messages=[
             {"role": "system",
              "content": "You are a fantasy football analyst providing insights and trade recommendations. Using the "
-                        "provide rankings and proejected create mock trades with other teams and confidently suggest trades. "
+                        "provide rankings create mock trades with other teams and confidently suggest trades. "
                         "Also make sure to provide a detailed analysis of the team's strengths and weaknesses."
                         "Include the team's current standings and playoff chances as part of the analysis "
                         "and reasoning to possibly be more aggressive or vice versa. Make specific trade suggestions "
                         "listing the other team and what the entire package could look like. Also include waiver "
-                        "pickups, only using players that are not rostered in the league. Ensure that the trade suggestions "
-                        "actually will increase projected points for the position we are trying to upgrade. Make sure"
-                        "trades are reasonable and that both teams would possibly accept."},
+                        "pickups, only using players that are not rostered in the league."},
             {"role": "user", "content": prompt}
         ],
         max_tokens=1300,
