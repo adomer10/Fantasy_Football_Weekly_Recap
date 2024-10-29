@@ -115,6 +115,6 @@ if st.button("Generate Weekly Recap"):
             recap = generate_funny_recap(summary)
             st.write("**Funny Weekly Recap:**")
             st.write(recap)
-            st.write(\n"**Based on app built from Jeisey**")
+            st.write("\n**Based on app built from Jeisey**")
         except Exception as e:
             st.error(f"An error occurred: {str(e)}")
