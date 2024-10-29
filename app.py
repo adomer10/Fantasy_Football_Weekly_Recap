@@ -80,7 +80,7 @@ def generate_funny_recap(summary):
     try:
         prompt = f"Create a funny, sarcastic weekly recap based on this fantasy football data:\n\n{summary}"
         response = openai.chat.completions.create(
-            model="gpt-4",
+            model="gpt-4o",
             messages=[
                 {"role": "system",
                  "content": "You are a very raunchy, explicit and sarcastic commentator providing a humorous recap of a "
