@@ -195,14 +195,14 @@ if option == "Weekly Recap" and league:
                 st.write('\n\nBased on app built from Jeisey on github')
 
 elif option == "Detailed Team Analysis" and league:
-    st.subheader("Available Teams")
+    st.subheader("Select Your Team for Analysis")
     team_names = [team.team_name for team in league.teams]
-    st.write(", ".join(team_names))
-    team_name = st.text_input("Your Team Name", help="Enter your fantasy team's name.")
+    team_name = st.selectbox("Choose your team:", team_names)
+
     if st.button("Get Team Analysis and Trade Suggestions") and team_name:
         with st.spinner("Analyzing team and generating trade suggestions..."):
             team_analysis = analyze_team_and_suggest_trades(team_name, player_data, league)
             st.write("**Detailed Team Analysis and Trade Suggestions:**")
             st.write(team_analysis)
             st.write('\n\nBased on app built from Jeisey')
-            st.write('\nData Source: [FantasyPros](https://www.fantasypros.com/)')
+            st.write('\nData Source: [FantasyPros](https://www.fantasypros.com/)')')
