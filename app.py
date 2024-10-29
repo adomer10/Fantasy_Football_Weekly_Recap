@@ -166,7 +166,7 @@ def analyze_team_and_suggest_trades(team_name, player_data, league):
               f"spots.")
     # GPT-4 final analysis and trade recommendations
     response = openai.chat.completions.create(
-        model="gpt-4o",
+        model="gpt-4o-mini",
         messages=[
             {"role": "system",
              "content": "You are a fantasy football analyst providing insights and trade recommendations. Using the "
