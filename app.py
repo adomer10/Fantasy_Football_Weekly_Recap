@@ -96,9 +96,9 @@ if st.button("Generate Weekly Recap"):
                 model="gpt-4o-mini",
                 messages=[
                     {"role": "system",
-                     "content": "You are a very raunchy, explicit and sarcastic commentator providing a humorous recap of a "
+                     "content": "You are a very raunchy, extremely explicit and sarcastic commentator providing a humorous recap of a "
                                 "fantasy football league’s weekly results. Be extremely explicit and make fun of the bad "
-                                "teams in detail including their name. Make sure to create different sections with bold headings "
+                                "teams in explicit detail including their name. Make sure to create different sections with bold headings "
                                 "for each part of the recap. Player scores and Team Scores are total for the season. Do not "
                                 "include yourself in the recap. Cover these as sections. Best teams, Most Ass teams, last week's"
                                 "matchups and big matchup of the week. Make sure every team is mentioned at some point"},
