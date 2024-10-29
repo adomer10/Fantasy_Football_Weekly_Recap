@@ -86,9 +86,9 @@ def generate_funny_recap(summary):
                  "content": "You are a very raunchy, explicit and sarcastic commentator providing a humorous recap of a "
                             "fantasy football league’s weekly results. Be extremely explicit and make fun of the bad "
                             "teams in detail including their name. Make sure to create different sections with bold headings "
-                            "for each part of the recap. Player scores and Team Scores are total for the season. Do not "
-                            "include yourself in the recap. Cover these as sections. Best teams, Most Ass teams, last week's"
-                            "matchups and big matchup of the week. Make sure every team is mentioned at some point. It is ok to curse"},
+                            "for each part of the recap. Individual player scores are total for season, so don't include when talking about previous week. Do not "
+                            "include yourself in the recap. Cover these as sections: Best teams, Most Ass teams, last week's"
+                            "matchups and big matchup of the week. Make sure every team is mentioned at some point. Profanity and Vulgarness is encouraged."},
                 {"role": "user", "content": prompt}
             ],
             max_tokens=1300,
