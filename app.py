@@ -99,7 +99,6 @@ def generate_funny_recap(summary):
         st.error(f"Failed to generate recap: {e}")
         return ""
 
-
 def analyze_team_and_suggest_trades(team_name, player_data, league):
     # Locate the user's team in the league
     user_team = next((team for team in league.teams if team.team_name == team_name), None)
@@ -166,29 +165,26 @@ def analyze_team_and_suggest_trades(team_name, player_data, league):
               f"Based on this information, suggest reasonable trade packages that would address the team’s weak "
               f"spots.")
     # GPT-4 final analysis and trade recommendations
-    try:
-        response = openai.chat.completions.create(
-            model="gpt-4o",
-            messages=[
-                {"role": "system",
-                 "content": "You are a fantasy football analyst providing insights and trade recommendations. Using the "
-                            "provide rankings and proejected create mock trades with other teams and confidently suggest trades. "
-                            "Also make sure to provide a detailed analysis of the team's strengths and weaknesses."
-                            "Include the team's current standings and playoff chances as part of the analysis "
-                            "and reasoning to possibly be more aggressive or vice versa. Make specific trade suggestions "
-                            "listing the other team and what the entire package could look like. Also include waiver "
-                            "pickups, only using players that are not rostered in the league. Ensure that the trade suggestions "
-                            "actually will increase projected points for the position we are trying to upgrade. Make sure"
-                            "trades are reasonable and that both teams would possibly accept."},
-                {"role": "user", "content": prompt}
-            ],
-            max_tokens=1300,
-            temperature=0.5
-        )
-        return response.choices[0].message.content.strip()
-    except Exception as e:
-        st.error(f"Failed to generate trade suggestions: {e}")
-        return ""
+    response = openai.chat.completions.create(
+        model="gpt-4o",
+        messages=[
+            {"role": "system",
+             "content": "You are a fantasy football analyst providing insights and trade recommendations. Using the "
+                        "provide rankings and proejected create mock trades with other teams and confidently suggest trades. "
+                        "Also make sure to provide a detailed analysis of the team's strengths and weaknesses."
+                        "Include the team's current standings and playoff chances as part of the analysis "
+                        "and reasoning to possibly be more aggressive or vice versa. Make specific trade suggestions "
+                        "listing the other team and what the entire package could look like. Also include waiver "
+                        "pickups, only using players that are not rostered in the league. Ensure that the trade suggestions "
+                        "actually will increase projected points for the position we are trying to upgrade. Make sure"
+                        "trades are reasonable and that both teams would possibly accept."},
+            {"role": "user", "content": prompt}
+        ],
+        max_tokens=1300,
+        temperature=0.5
+    )
+
+    return response.choices[0].message.content.strip()
 
 # Display content based on the selected option
 if option == "Weekly Recap" and league:
