@@ -83,7 +83,7 @@ def generate_funny_recap(summary):
             model="gpt-4o",
             messages=[
                 {"role": "system",
-                 "content": "You are a very raunchy, explicit and sarcastic commentator providing a humorous recap of a "
+                 "content": "You are providing a very raunchy, explicit and sarcastichumorous recap of a "
                             "fantasy football league’s weekly results. Be extremely explicit and make fun of the bad "
                             "teams in detail including their name. Make sure to create different sections with bold headings "
                             "for each part of the recap. Individual player scores are total for season, so don't include when talking about previous week. Do not "
@@ -187,17 +187,20 @@ def analyze_team_and_suggest_trades(team_name, player_data, league):
 # Display content based on the selected option
 if option == "Weekly Recap" and league:
     if st.button("Generate Weekly Recap"):
-        summary = get_comprehensive_league_summary()
-        if summary:
-            recap = generate_funny_recap(summary)
-            st.write(recap)
-            st.write('\n\nBased on app built from Jeisey')
+        with st.spinner("Generating weekly recap..."):
+            summary = get_comprehensive_league_summary()
+            if summary:
+                recap = generate_funny_recap(summary)
+                st.write("**Funny Weekly Recap:**")
+                st.write(recap)
+                st.write('\n\nBased on app built from Jeisey on github')
 
 elif option == "Detailed Team Analysis" and league:
     team_name = st.text_input("Your Team Name", help="Enter your fantasy team's name.")
     if st.button("Get Team Analysis and Trade Suggestions") and team_name:
-        team_analysis = analyze_team_and_suggest_trades(team_name, player_data, league)
-        st.write("**Detailed Team Analysis and Trade Suggestions:**")
-        st.write(team_analysis)
-        st.write('\n\nBased on app built from Jeisey')
-        st.write('\nData Source: [FantasyPros](https://www.fantasypros.com/)')
+        with st.spinner("Analyzing team and generating trade suggestions..."):
+            team_analysis = analyze_team_and_suggest_trades(team_name, player_data, league)
+            st.write("**Detailed Team Analysis and Trade Suggestions:**")
+            st.write(team_analysis)
+            st.write('\n\nBased on app built from Jeisey')
+            st.write('\nData Source: [FantasyPros](https://www.fantasypros.com/)')
