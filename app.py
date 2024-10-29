@@ -11,11 +11,17 @@ st.write("Enter your league details to generate a humorous, detailed weekly reca
 st.write("For SW2 and ESPN_S2: https://www.gamedaybot.com/help/espn_s2-and-swid/")
 st.write("For League ID: Go to your league's homepage on ESPN and copy the number at the end of the URL.")
 
-# User Inputs
-league_id = st.text_input("League ID", help="Your ESPN Fantasy Football league ID.")
-year = st.number_input("Year", min_value=2000, max_value=2024, value=2024, help="Fantasy season year.")
-swid = st.text_input("SWID", help="Your ESPN SWID cookie value.")
-espn_s2 = st.text_input("ESPN_S2", help="Your ESPN_S2 cookie value.")
+# Sidebar Inputs
+with st.sidebar:
+    st.header("Enter League Details")
+    st.write("For SW2 and ESPN_S2: [Help Guide](https://www.gamedaybot.com/help/espn_s2-and-swid/)")
+    st.write("For League ID: Go to your league's homepage on ESPN and copy the number at the end of the URL.")
+
+    # User Inputs in the Sidebar
+    league_id = st.text_input("League ID", help="Your ESPN Fantasy Football league ID.")
+    year = st.number_input("Year", min_value=2000, max_value=2024, value=2024, help="Fantasy season year.")
+    swid = st.text_input("SWID", help="Your ESPN SWID cookie value.")
+    espn_s2 = st.text_input("ESPN_S2", help="Your ESPN_S2 cookie value.")
 
 if st.button("Generate Weekly Recap"):
     if not league_id or not swid or not espn_s2:
@@ -111,7 +117,6 @@ if st.button("Generate Weekly Recap"):
             summary = get_comprehensive_league_summary()
 
             recap = generate_funny_recap(summary)
-            st.write("**Funny Weekly Recap:**")
             st.write(recap)
             st.write("\n**Based on app built from Jeisey**")
         except Exception as e:
