@@ -80,7 +80,7 @@ def generate_funny_recap(summary):
     try:
         prompt = f"Create a funny, sarcastic weekly recap based on this fantasy football data:\n\n{summary}"
         response = openai.chat.completions.create(
-            model="gpt-4o",
+            model="gpt-4o-mini",
             messages=[
                 {"role": "system",
                  "content": "You are providing a very raunchy, explicit and sarcastichumorous recap of a "
@@ -166,7 +166,7 @@ def analyze_team_and_suggest_trades(team_name, player_data, league):
               f"spots.")
     # GPT-4 final analysis and trade recommendations
     response = openai.chat.completions.create(
-        model="gpt-4o-mini",
+        model="gpt-4o",
         messages=[
             {"role": "system",
              "content": "You are a fantasy football analyst providing insights and trade recommendations. Using the "
@@ -175,7 +175,7 @@ def analyze_team_and_suggest_trades(team_name, player_data, league):
                         "Include the team's current standings and playoff chances as part of the analysis "
                         "and reasoning to possibly be more aggressive or vice versa. Make specific trade suggestions "
                         "listing the other team and what the entire package could look like. Also include waiver "
-                        "pickups, only using players that are not rostered in the league."},
+                        "pickups, only using players that are not rostered in the league. Make reasonable Trades"},
             {"role": "user", "content": prompt}
         ],
         max_tokens=1300,
