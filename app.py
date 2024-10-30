@@ -205,4 +205,4 @@ elif option == "Detailed Team Analysis" and league:
             st.write("**Detailed Team Analysis and Trade Suggestions:**")
             st.write(team_analysis)
             st.write('\n\nBased on app built from Jeisey')
-            st.write('\nData Source: [FantasyPros](https://www.fantasypros.com/)')')
+            st.write('\nData Source: [FantasyPros](https://www.fantasypros.com/)')
